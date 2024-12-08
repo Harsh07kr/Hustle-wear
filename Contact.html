@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Hustle Wear</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fff, #f1f1f1); /* Lighter gradient background */
+      color: #333;
+    }
+
+    /* Contact Section */
+    #contact-us {
+      padding: 60px 20px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+      margin: 40px auto;
+      max-width: 1100px;
+    }
+
+    #contact-us h2 {
+      font-size: 3em;
+      text-align: center;
+      color: #FF5E62;
+      margin-bottom: 20px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    #contact-us p {
+      text-align: center;
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 40px;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .contact-item {
+      flex: 1;
+      min-width: 300px;
+      background: #f9f9f9; /* Lighter background for items */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      transition: transform 0.3s ease-in-out;
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-10px); /* Hover effect for raised card */
+    }
+
+    .contact-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-item h3 {
+      color: #333;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    .contact-item p, .contact-item ul {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .contact-item a {
+      color: #FF5E62;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #ff9966;
+    }
+
+    .contact-form {
+      background-color: #f9f9f9; /* Lighter form background */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+      animation: fadeInUp 2.5s ease-out;
+    }
+
+    .contact-form label {
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border 0.3s ease;
+    }
+
+    .contact-form input:focus, .contact-form textarea:focus {
+      border: 1px solid #FF5E62;
+    }
+
+    .contact-form button {
+      background-color: #FF5E62;
+      color: #fff;
+      font-size: 1.2em;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff9966;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Map iframe responsiveness */
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 260px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-details {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-item {
+        min-width: 100%;
+        margin-bottom: 20px;
+      }
+
+      iframe {
+        width: 100%;
+        height: 300px;
+      }
+    }
+
+    .navbar {
+  background-color: #f8f7f7;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 35px; /* Adjust to fit logo size */
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: fixed;
+}
+
+.logo-image:hover {
+  transform: scale(1.1); /* Adds a slight hover effect */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: rgb(8, 8, 8);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #444;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+.heading{
+  font-family: 'Poppins', sans-serif; /* Stylish and readable font */
+  font-size: 0.8rem; /* Adjust size for emphasis */
+  font-weight: 700; /* Bold for prominence */
+  color: #333; /* Dark color for good contrast */
+  text-transform: uppercase; /* Capitalized text for a bold look */
+  text-align:end; 
+  justify-content: center;
+  letter-spacing: 1.5px; /* Slightly spaced letters for modern feel */
+  position: fixed; /* For additional decoration */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+
+
+footer {
+background-color: #1a1a1a;
+color: #fff;
+padding: 20px 0;
+font-family: Arial, sans-serif;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+padding: 20px;
+text-align: left;
+}
+
+.footer-section {
+width: 22%;
+margin-bottom: 20px;
+}
+
+.footer-section h4 {
+margin-bottom: 10px;
+font-size: 18px;
+
+}
+
+.footer-section ul {
+list-style: none;
+padding: 0;
+}
+
+.footer-section ul li {
+margin: 5px 0;
+}
+
+.footer-section ul li a {
+color: #fff;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+color: #f0a500;
+}
+
+.app-links img, .payment-icons img {
+width: 120px;
+margin: 5px 0;
+}
+
+.payment-icons img {
+width: 200px;
+}
+
+.footer-bottom {
+text-align: center;
+margin-top: 20px;
+font-size: 14px;
+color: #aaa;
+}
+
+/* For Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+width: 12px; /* width of the scrollbar */
+height: 12px; /* height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+background: #f1f1f1; /* background color of the track */
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+background: #0f1d2e; /* color of the scroll thumb */
+border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; /* color when you hover over the thumb */
+}
+
+::-webkit-scrollbar-button {
+display: none; /* Hides the scroll buttons */
+}
+  </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+          <img src="gp.webp" alt="Hustle Wear Logo" class="logo-image">
+        </div>
+        <div class="heading"><h1><pre>   Hustle Wear</pre></h1></div>
+        <ul class="nav-links">
+          
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Shop.html">Shop</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="Contact">Contact</a></li>
+        </ul>
+      </nav>
+
+  <section id="contact-us">
+    <div class="container">
+      <h2 class="fade-in">Contact Us</h2>
+      <p class="fade-in">We’d love to hear from you! Whether you have a question about our products, need help with your order, or just want to share your thoughts, we’re here to help.</p>
+      
+      <div class="contact-details">
+        <div class="contact-item slide-up">
+          <h3>Customer Support</h3>
+          <p>Email: <a href="mailto:support@hustlewear.com">support@hustlewear.com</a></p>
+          <p>Phone: +91 123 456 7890</p>
+          <p>WhatsApp: +91 987 654 3210</p>
+          <img src="cs.jpg" alt="Customer Support" class="contact-image">
+        </div>
+
+        <div class="contact-item slide-up">
+          <h3>Address</h3>
+          <p>Hustle Wear HQ</p>
+          <p>123 Fashion Street, Mumbai, Maharashtra, India</p>
+          <!-- Embed the Google Map iframe -->
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4015.1778021634495!2d85.3068978986144!3d23.370851659930633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sin!4v1733672773318!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="contact-item slide-up">
+          <h3>Social Media</h3>
+          <p>Follow us and stay updated:</p>
+          <ul>
+            <li><a href="https://www.instagram.com/hustlewear" target="_blank">Instagram</a></li>
+            <li><a href="https://www.facebook.com/hustlewear" target="_blank">Facebook</a></li>
+            <li><a href="https://www.twitter.com/hustlewear" target="_blank">Twitter</a></li>
+          </ul>
+          <img src="cs2.jpg" alt="Social Media" class="contact-image">
+        </div>
+
+        <div class="contact-item slide-up">
+          <h3>Business Inquiries</h3>
+          <p>Email: <a href="mailto:business@hustlewear.com">business@hustlewear.com</a></p>
+          <img src="lgo (1).jpeg" height="350px" width="40px" alt="Business Inquiries" class="contact-image">
+        </div>
+      </div>
+
+      <div class="contact-form fade-in">
+        <h3>Send Us a Message</h3>
+        <form action="/submit-form" method="POST">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Address: Kanke Road Ranchi</p>
+        <p>Phone: +91 7583437388</p>
+        <p>Hours: 10:00 AM - 6:00 PM, Mon - Sat</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Information</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">View Cart</a></li>
+          <li><a href="#">My Wishlist</a></li>
+          <li><a href="#">Track My Order</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Install App</h4>
+        <p>Download our app from</p>
+        <div class="app-links">
+          <a href="#"><img src="app.jpg" alt="App Store"></a>
+          <a href="#"><img src="play.jpg" alt="Google Play"></a>
+        </div>
+        <p>Secure Payment Gateways</p>
+        <div class="payment-icons">
+          <img src="pay.png" alt="Visa" >
+          
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2024 Hustle Wear. All Rights Reserved.</p>
+  </footer>
+
+
+</body>
+</html>
