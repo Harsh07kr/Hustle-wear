@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hustle Wear - E-Commerce Clothing</title>
+  <style>
+    /* Resetting default browser styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Spartan, sans-serif;
+      background-color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation Bar Styles */
+    
+    .navbar {
+  background-color: #f8f7f7;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 35px; /* Adjust to fit logo size */
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  position: fixed;
+}
+
+.logo-image:hover {
+  transform: scale(1.1); /* Adds a slight hover effect */
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: rgb(8, 8, 8);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #444;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.heading{
+  font-family: 'Poppins', sans-serif; /* Stylish and readable font */
+  font-size: 0.8rem; /* Adjust size for emphasis */
+  font-weight: 700; /* Bold for prominence */
+  color: #333; /* Dark color for good contrast */
+  text-transform: uppercase; /* Capitalized text for a bold look */
+  text-align:end; 
+  justify-content: center;
+  letter-spacing: 1.5px; /* Slightly spaced letters for modern feel */
+  position: fixed; /* For additional decoration */
+}
+
+
+    
+    /* Hero Section */
+    .hero {
+      background-color: #ffffff;
+      background-image: url(./b1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: rgb(255, 249, 249);
+      padding: 60px 20px 10px 10px;
+      text-align: center;
+      height: 45vh;
+      width: 100%;
+      
+      
+      font-size: x-large;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      line-height: 1;
+
+
+      
+    }
+
+    /* Product Section */
+    .products {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .product-list {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    .product-item {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 30%;
+    }
+
+    .product-item img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .price {
+      font-size: 1.2em;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    
+
+    footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  text-align: left;
+}
+
+.footer-section {
+  width: 22%;
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #f0a500;
+}
+
+.app-links img, .payment-icons img {
+  width: 120px;
+  margin: 5px 0;
+}
+
+.payment-icons img {
+  width: 200px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* For Webkit browsers like Chrome, Safari */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+  height: 12px; /* height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* background color of the track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f1d2e; /* color of the scroll thumb */
+  border-radius: 10px;
+  
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color when you hover over the thumb */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Hides the scroll buttons */
+}
+
+/* Small Bar Section */
+.features-section {
+  padding: 2rem;
+  background-color: #f8f8f8;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.feature-card {
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #060606;
+  
+}
+
+.product-section {
+      padding: 10px;
+      padding-right: 30px;
+      padding-left: 30px;
+      background-color: #f9f9f9;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      text-align: center;
+      padding: 17px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin: 0 auto;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .product-image img {
+      width: 80%;
+      height: auto;
+      border-radius: 8px 8px 0 0;
+    }
+    .product-name {
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .product-price {
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .product-rating {
+      margin-bottom: 15px;
+      color: #f39c12;
+    }
+    .add-to-cart-btn {
+      background-color: #28a745;
+      color: #fff;
+      padding: 10px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    .add-to-cart-btn:hover {
+      background-color: #218838;
+    }
+
+    .product-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3px;
+      color: #333;
+    }
+
+    .product-section p {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 30px; /* Space between paragraph and grid */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .product-name span {
+      color: #333; /* Color for Adidas text */
+      font-weight: bold;
+    }
+   
+    .offer-banner {
+  background-image: url("b2.jpg");
+  background-size: cover; /* Ensures the background image covers the entire banner */
+  background-position: center; /* Centers the image within the banner */
+  color: white;
+  padding: 40px 20px; /* Adjusted padding for better responsiveness */
+  text-align: center;
+  width: 96%;
+  height: auto; /* Using 'auto' instead of 'max-content' for dynamic height */
+  margin: 35px auto; /* Center the banner horizontally with an even margin */
+}
+
+.offer-banner .container {
+  max-width: 1200px; /* Limits the width of the content for better readability */
+  margin: 0 auto; /* Centers the container */
+  padding: 0 15px; /* Adds padding for spacing inside the container */
+}
+
+.offer-banner .offer-content {
+  margin-top: 20px; /* Adds spacing above the content */
+}
+
+.offer-banner h2 {
+  font-size: 2.5rem; /* Adjust the font size for heading */
+  margin-bottom: 15px; /* Spacing below the heading */
+}
+
+.offer-banner p {
+  font-size: 1.2rem; /* Adjust the font size for the paragraph */
+  margin-bottom: 20px; /* Spacing below the paragraph */
+}
+
+.offer-banner .cta-btn {
+  display: inline-block;
+  background-color: #ff6f61; /* Button background color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Button padding */
+  text-decoration: none; /* Removes underline */
+  font-size: 1rem; /* Font size */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Adds hover effect */
+}
+
+.offer-banner .cta-btn:hover {
+  background-color: #e65a50; /* Darker shade on hover */
+}
+
+
+   
+
+
+
+  </style>
+
+
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="gp.webp" alt="Hustle Wear Logo" class="logo-image">
+    </div>
+    <div class="heading"><h1><pre>   Hustle Wear</pre></h1></div>
+    <ul class="nav-links">
+      
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  
+  
+
+  <!-- Hero Section -->
+  <section class="hero"
+  > 
+  <!-- <img src="b1.jpg" alt=""> -->
+    <h2>Welcome to Hustle Wear</h2>
+    <p>Where fashion meets motivation!</p>
+  </section>
+
+  <section class="features-section">
+    <div class="features-container">
+      <div class="feature-card">
+        <img src="f1.png" alt="Free Shipping Icon">
+        <p>Free Shipping</p>
+      </div>
+      <div class="feature-card">
+        <img src="f2.png" alt="Online Order Icon">
+        <p>Online Order</p>
+      </div>
+      <div class="feature-card">
+        <img src="f3.png" alt="Save Money Icon">
+        <p>Save Money</p>
+      </div>
+      <div class="feature-card">
+        <img src="f4.png" alt="Promotions Icon">
+        <p>Promotions</p>
+      </div>
+      <div class="feature-card">
+        <img src="f5.png" alt="Happy Sell Icon">
+        <p>Happy Sell</p>
+      </div>
+      <div class="feature-card">
+        <img src="f6.png" alt="24/7 Support Icon">
+        <p>24/7 Support</p>
+      </div>
+    </div>
+  </section>
+  <section class="product-section">
+
+    <h2>Our New Winter Collection</h2>
+    <p>Victory Anthem Edition</p>
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j8.webp" alt="Product 1">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j7.webp" alt="Product 2">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j6.webp" alt="Product 3">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j5.webp" alt="Product 4">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section">
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j4.webp" alt="Product 1">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j3.webp" alt="Product 2">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j2.webp" alt="Product 3">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="j1.webp" alt="Product 4">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+    
+    
+
+  <section class="offer-banner">
+    <div class="container">
+      <div class="offer-content">
+        <h2>Exclusive Offers & Limited Time Deals</h2>
+        <p>Hurry up! Shop now to grab our hottest deals before they're gone.</p>
+        <a href="/shop-now" class="cta-btn">Shop Now</a>
+      </div>
+    </div>
+  </section><!-- Product Section -->
+  <section class="product-section">
+
+    <h2>Our New Collection</h2>
+    <p>Premium Quality Product</p>
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s6.webp" alt="Product 1">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s3.webp" alt="Product 2">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s4.webp" alt="Product 3">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s5.webp" alt="Product 4">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-section">
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s7.webp" alt="Product 1">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s8.webp" alt="Product 2">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name">Adidas Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s9.webp" alt="Product 3">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="s10.webp" alt="Product 4">
+        </div>
+        <span>Adidas</span>
+        <div class="product-name"> Cartoon Astronaut T-Shirt</div>
+        <div class="product-price">$78</div>
+        <div class="product-rating">⭐⭐⭐</div>
+        <a href="#" class="add-to-cart-btn">Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  
+
+
+  
+  
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Address: Kanke Road Ranchi</p>
+        <p>Phone: +91 7583437388</p>
+        <p>Hours: 10:00 AM - 6:00 PM, Mon - Sat</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Delivery Information</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="#">Sign In</a></li>
+          <li><a href="#">View Cart</a></li>
+          <li><a href="#">My Wishlist</a></li>
+          <li><a href="#">Track My Order</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-section">
+        <h4>Install App</h4>
+        <p>Download our app from</p>
+        <div class="app-links">
+          <a href="#"><img src="app.jpg" alt="App Store"></a>
+          <a href="#"><img src="play.jpg" alt="Google Play"></a>
+        </div>
+        <p>Secure Payment Gateways</p>
+        <div class="payment-icons">
+          <img src="pay.png" alt="Visa" >
+          
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2024 Hustle Wear. All Rights Reserved.</p>
+  </footer>
+
+
+  
+
+
+</body>
+</html>
